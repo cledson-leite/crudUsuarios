@@ -3,7 +3,9 @@ import React from 'react'
 function Footer() {
     return (
         <footer className = 'footer'>
-            Footer
+            <span>
+                Desenvolvido com <i className = 'fa fa-heart text-danger' /> por <strong>Cledson Leite</strong>
+            </span>
         </footer>
     )
 }
