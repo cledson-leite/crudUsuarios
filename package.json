@@ -1,0 +1,8 @@
+{
+  "name": "crudUsuarios",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cledson-leite/crudUsuarios.git",
+  "author": "cledson-leite <csbetsonline@gmail.com>",
+  "license": "MIT"
+}
