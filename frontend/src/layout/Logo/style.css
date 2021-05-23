@@ -1,0 +1,7 @@
+aside.logo {
+    background-color: var(--bg-dark);
+}
+
+aside.logo img {
+    height: 100px;
+}

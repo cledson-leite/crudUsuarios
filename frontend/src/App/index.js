@@ -1,13 +1,24 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
-import GlobalStyle from "./style";
+import "./style.css";
 import React from 'react'
 
-function App(props) {
+import Logo from "../layout/Logo";
+import Nav from "../layout/Nav";
+import Main from "../layout/Main";
+import Footer from "../layout/Footer";
+
+
+
+function App() {
     return (
-        <GlobalStyle>
-            Estudo de Caso Cadastro de Usuários
-        </GlobalStyle>
+        <div className = 'app'>
+            <Logo />
+            <Nav />
+            <Main icon = 'home' title = 'Início'
+                subtitle = 'Estudo de Caso: Cadastro de Usuário'/>
+            <Footer />
+        </div>
     )
 }
 
