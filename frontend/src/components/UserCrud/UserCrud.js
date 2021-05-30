@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Main from "../../layout/Main";
+import { getAll } from '../../services/Axios';
 
 const headerProps = {
     icon: 'users',
@@ -15,6 +16,12 @@ const initialState = {
 
 export class UserCrud extends Component {
     state = {...initialState}
+
+    async componentDidMount(){
+        const resp = await getAll()
+        this.setState({list: resp })
+    }
+
     render() {
         return (
             <Main {...headerProps}>
