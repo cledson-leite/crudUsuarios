@@ -1,11 +1,11 @@
 import React from 'react'
-import './style.css';
+import { Link } from "react-router-dom";
 
 function MenuItem(props) {
     return (
-        <a className = 'menu-item' href ={props.href}>
+        <Link to ={props.href} className = 'menu-item' >
             <i className = {`fa fa-${props.icon}`} /> {props.title}
-        </a>
+        </Link>
     )
 }
 export default MenuItem

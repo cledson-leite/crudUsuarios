@@ -5,8 +5,8 @@ import MenuItem from '../../components/MenuItem'
 function Nav() {
     return (
         <aside className = 'menu-area'>
-            <MenuItem icon = 'home' title = 'Início' href = '#/' />
-            <MenuItem icon = 'users' title = 'Usuários' href = '#/' />
+            <MenuItem icon = 'home' title = 'Início' href = '/' />
+            <MenuItem icon = 'users' title = 'Usuários' href = '/users' />
         </aside>
     )
 }
