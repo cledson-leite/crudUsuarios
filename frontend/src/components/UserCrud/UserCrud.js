@@ -22,31 +22,14 @@ export class UserCrud extends Component {
         const resp = await getAll()
         this.setState({list: resp })
     }
-
-    updateField(event){
-        const user = {...this.state.user}
-        user[event.target.name] = event.target.value
-        this.setState({ user }) 
-    } 
-    
     getUpdateList(user, add = true) {
         const list = this.state.list.filter( u => u.id !== user.id)
-        if (add) list.unshift(user)
+        list.unshift(user)
         this.setState({ list }) 
-    }
-    clear() {
-        this.setState({user: initialState.user}) 
     } 
 
     load(user) {
         this.setState({user}) 
-    } 
-
-    async save() {
-        const user = this.state.user
-        const resp = await update(user)
-        const list = this.getUpdateList(resp) 
-        this.setState({user: initialState, list}) 
     }
 
     async remove(user) {

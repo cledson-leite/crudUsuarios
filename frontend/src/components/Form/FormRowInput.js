@@ -1,13 +1,25 @@
 import React from 'react'
-import FormInput from './FormInput'
+import { connect } from 'react-redux'
+import { bindActionCreators } from "redux";
 
-function FormRowInput(props) {
+import FormInput from './FormInput'
+import { changeName, changeEmail} from "../../Store/Actions/index";
+
+export const FormRowInput = (props) => {
+    const { name, email} = props.user
     return (
         <div className = 'col-12 col-md-6'>
-            <FormInput  {...props} name = 'name' label = 'Nome' value = {props.valueName}/>
-            <FormInput  {...props} name = 'email' label = 'Email'/>
+            <FormInput onChange = {props.changeName} label = 'Nome' value = {name}/>
+            <FormInput onChange = {props.changeEmail} label = 'Email' value = {email}/>
         </div>
     )
 }
 
-export default FormRowInput
+const mapStateToProps = (state) => ({
+    user: state.crudUser.user
+})
+
+const mapDispatchToProps = dispatch => 
+    bindActionCreators({ changeName, changeEmail}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormRowInput)

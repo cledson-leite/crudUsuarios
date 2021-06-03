@@ -1,13 +1,25 @@
 import React from 'react'
-import FormButton from './FormButton'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-function FormRowButton(props) {
+
+import FormButton from './FormButton'
+import { clear, save } from "../../Store/Actions/index"
+
+export const FormRowButton = (props) => {
     return (
         <div className = 'col-12 d-flex justify-content-end'>
-              <FormButton {...props} className = 'btn btn-primary' title = 'Salvar' onClick = {props.salvar}/>
-              <FormButton {...props} className = 'btn btn-secondary' title = 'Cancelar' onClick = {props.cancelar}/>
+              <FormButton className = 'btn btn-primary' title = 'Salvar' onClick = {props.save}/>
+              <FormButton className = 'btn btn-secondary' title = 'Cancelar' onClick = {props.clear}/>
         </div>
     )
 }
 
-export default FormRowButton
+const mapStateToProps = (state) => ({
+    
+})
+
+const mapDispatchToProps = dispatch => 
+bindActionCreators({ clear, save }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormRowButton)

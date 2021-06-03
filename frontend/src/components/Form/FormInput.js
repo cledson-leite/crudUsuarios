@@ -7,7 +7,7 @@ function FormInput(props) {
             <input type = 'text' className = 'form-control'
                 name = {props.name}
                 value = {props.value}
-                onChange = {e => props.onChange(e)}
+                onChange = {props.onChange}
                 placeholder = {`Digite seu ${props.name} ...`}
             />
             

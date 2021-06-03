@@ -4,18 +4,16 @@ const baseUrl = 'http://localhost:3001/users'
 
 const getAll = async user => {
     const resp = await axios(baseUrl)
-    return resp.data
+    return resp
 }
 
-const update = async user => {
-    const method = user.id ? 'put' : 'post'
-    const url = user.id ? `${baseUrl}/${user.id}`: baseUrl
-    const resp = await axios[method](url, user)
-    return resp.data 
+const register = async user => {
+    const resp = await axios.post(baseUrl, user)
+    return resp
 }
 
 const removeOne = async user => {
     await axios.delete(`${baseUrl}/${user.id}`) 
 }
 
-export {getAll, update, removeOne}
+export {getAll, register, removeOne}
