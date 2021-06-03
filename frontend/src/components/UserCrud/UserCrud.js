@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Main from "../../layout/Main";
 import { getAll, removeOne, update } from '../../services/Axios';
+import Form from '../Form';
 
 const headerProps = {
     icon: 'users',
@@ -21,6 +22,12 @@ export class UserCrud extends Component {
         const resp = await getAll()
         this.setState({list: resp })
     }
+
+    updateField(event){
+        const user = {...this.state.user}
+        user[event.target.name] = event.target.value
+        this.setState({ user }) 
+    } 
     
     getUpdateList(user, add = true) {
         const list = this.state.list.filter( u => u.id !== user.id)
@@ -52,7 +59,13 @@ export class UserCrud extends Component {
     render() {
         return (
             <Main {...headerProps}>
-                Cadastro Usuários
+                <Form
+                    onChange = {this.updateField}
+                    valueName = {this.state.user.name}
+                    valueEmail = {this.state.user.email}
+                    salvar = {this.save}
+                    cancelar = {this.clear}
+                />
             </Main>
         )
     }
