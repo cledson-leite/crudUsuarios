@@ -2,7 +2,7 @@ import React from 'react'
 
 function FormButton(props) {
     return (
-        <button 
+        <button
             className = {props.className}
             onClick = {props.onClick}
             >

@@ -1,5 +1,3 @@
-import { register } from "../../services/Axios"
-
 export const changeName = event =>({
     type: 'NAMECHANGED',
     payload: event.target.value
@@ -12,15 +10,19 @@ export const changeEmail = event =>({
 
 export const clear = () => ({type: 'CLEARED'})
 
-export const save = (name, email) => {
-    return dispatch => {
-        const user = {name, email}
-        register(user)
-            .then(dispatch(clear())) 
-            .then(resp => dispatch({
-                type: 'USERSAVED',
-                payload: resp.data
-            }))
+export const saveSuccess = () => {
+    return {type: 'USERSAVESUCCESS'}
+}
+
+export const saveRequest = (user) => {
+    return {
+        type: 'USERSAVEREQUEST',
+        payload: user
     }
 }
+
+export const saveFailure = () => {
+    return {type: 'USERSAVEFAILURE'}
+}
+
     

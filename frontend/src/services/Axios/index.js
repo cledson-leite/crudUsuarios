@@ -7,12 +7,12 @@ const getAll = async user => {
     return resp
 }
 
-const register = async user => {
-    const resp = await axios.post(baseUrl, user)
+const register = user => {
+    const resp = axios.post(baseUrl, user)
     return resp
 }
 
-const removeOne = async user => {
+const removeOne =  async user => {
     await axios.delete(`${baseUrl}/${user.id}`) 
 }
 

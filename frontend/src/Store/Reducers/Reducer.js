@@ -6,19 +6,25 @@ const initialState = {
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'NAMECHANGED':
-            return {...state, user:{ name: action.payload }}
+            return {...state, user:{ ...state.user, name: action.payload }}
         
         case 'EMAILCHANGED':
-            return {...state, user:{ email: action.payload }}
+            return {...state, user:{ ...state.user, email: action.payload }}
         
         case 'CLEARED':
             return {...state, user: {name: '', email: ''}}
         
-        case 'USERSAVED':
+        case 'USERSAVESUCCESS':
             const list = 
                 this.state.list.filter( u => u.id !== action.payload.id)
             list.unshift(action.payload)
             return {...state, list}
+        
+        case 'USERSAVEREQUEST':
+            return state
+        
+        case 'USERSAVEFAILURE':
+            return state
     
         default:
             return state

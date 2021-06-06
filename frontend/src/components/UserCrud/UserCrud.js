@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Main from "../../layout/Main";
-import { getAll, removeOne, update } from '../../services/Axios';
+import { getAll, removeOne } from '../../services/Axios';
 import Form from '../Form';
 
 const headerProps = {

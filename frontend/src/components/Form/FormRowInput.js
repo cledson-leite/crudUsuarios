@@ -9,8 +9,8 @@ export const FormRowInput = (props) => {
     const { name, email} = props.user
     return (
         <div className = 'col-12 col-md-6'>
-            <FormInput onChange = {props.changeName} label = 'Nome' value = {name}/>
-            <FormInput onChange = {props.changeEmail} label = 'Email' value = {email}/>
+            <FormInput onChange = {props.changeName} label = 'Nome' value = {name} name = 'nome'/>
+            <FormInput onChange = {props.changeEmail} label = 'Email' value = {email} name = 'email'/>
         </div>
     )
 }
